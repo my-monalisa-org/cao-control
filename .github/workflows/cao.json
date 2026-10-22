@@ -45,13 +45,6 @@
         "my-monalisa-org/octo-orbit",
         "my-monalisa-org/tentacle-post"
       ]
-    },
-    "workflows": {
-      "repo-status": {
-        "max-mode": "review",
-        "max-repositories": 1,
-        "mode": "review"
-      }
     }
   },
   "gh-aw-version": "v0.92.6",
