@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/githubnext/gh-cao/main/.github/workflows/shared/cao.schema.json",
+  "control-plane": {
+    "activity": {
+      "public-only": true,
+      "repositories": [
+        "my-monalisa-org/cao-control",
+        "my-monalisa-org/mona-metrics",
+        "my-monalisa-org/octo-orbit",
+        "my-monalisa-org/tentacle-post"
+      ]
+    },
+    "campaigns": {},
+    "marketplace": {
+      "registries": [
+        {
+          "auth": {
+            "type": "none"
+          },
+          "id": "official",
+          "name": "Official CAO catalog",
+          "ref": "main",
+          "repository": "githubnext/gh-cao"
+        },
+        {
+          "auth": {
+            "type": "none"
+          },
+          "format": "workflows",
+          "id": "agentics",
+          "name": "Agentics workflows",
+          "path": "workflows",
+          "ref": "main",
+          "repository": "githubnext/agentics"
+        }
+      ]
+    },
+    "scope": {
+      "allowed-owners": [
+        "my-monalisa-org"
+      ],
+      "allowed-repositories": [
+        "my-monalisa-org/cao-control",
+        "my-monalisa-org/mona-metrics",
+        "my-monalisa-org/octo-orbit",
+        "my-monalisa-org/tentacle-post"
+      ]
+    }
+  },
+  "gh-aw-version": "v0.92.6",
+  "version": 1
+}
