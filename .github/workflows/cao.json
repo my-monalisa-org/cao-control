@@ -47,9 +47,9 @@
       ]
     },
     "workflows": {
-      "repo-status": {
+      "daily-repo-status": {
         "max-mode": "review",
-        "max-repositories": 1,
+        "max-repositories": 4,
         "mode": "review"
       }
     }
