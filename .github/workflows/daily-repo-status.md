@@ -1,9 +1,9 @@
 ---
-name: "Repo Status"
+name: "Daily Repo Status"
 description: "Summarizes one repository's previous complete UTC day in one bounded status issue."
 intent: Give maintainers an evidence-backed view of repository progress and the most useful next action, without duplicate reports or unsupported health claims.
-tracker-id: repo-status
-run-name: "Repo Status · ${{ inputs.target_repo }} · ${{ inputs.safe_output_mode || 'review' }}"
+tracker-id: daily-repo-status
+run-name: "Daily Repo Status · ${{ inputs.target_repo }} · ${{ inputs.safe_output_mode || 'review' }}"
 
 max-ai-credits: 300
 max-daily-ai-credits: -1
@@ -49,7 +49,7 @@ imports:
   - uses: shared/control.md
     with:
       role: standalone
-      workflow: repo-status
+      workflow: daily-repo-status
       read_repository: ${{ inputs.target_repo }}
       read_actions: read
       read_contents: read
@@ -64,6 +64,7 @@ permissions:
   copilot-requests: write
 
 engine: copilot
+model: gpt-5-mini
 strict: true
 
 concurrency:
@@ -111,8 +112,8 @@ steps:
         const fs = require('node:fs');
         const precompute = JSON.parse(fs.readFileSync('/tmp/gh-aw/agent/control-precompute.json', 'utf8'));
         if (precompute.authorized !== true || precompute.control_role !== 'standalone'
-          || precompute.workflow !== 'repo-status') {
-          throw new Error('Missing standalone Repo Status admission');
+          || precompute.workflow !== 'daily-repo-status') {
+          throw new Error('Missing standalone Daily Repo Status admission');
         }
         const targets = precompute.candidate_repositories;
         if (!Array.isArray(targets) || targets.length > 1
